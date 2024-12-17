@@ -1,0 +1,30 @@
+package oop;
+public class Employee extends User {
+    protected String position;  
+    protected double salary;   
+
+    public Employee(String id, String username, String email,String password, String position, double salary) {
+        super(id, username, email, password);
+        this.position = position;
+        this.salary = salary;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public void authentificate(String password) {
+        System.out.println("Employee authentificating...");
+    }
+
+}
+
