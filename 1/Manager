@@ -1,0 +1,72 @@
+package oop;
+
+import java.util.*; 
+
+public class Manager extends Employee { 
+    private List<Course> coursesForRegistration; 
+    private List<Message> employeeMassages;   
+    private List<News> newsList; 
+         
+ 
+    public Manager(String name, int id, String position, FinanceManager financeManager, FinanceOffice financeOffice) { 
+        super(id,username,email password, position, salary); 
+        this.coursesForRegistration = new ArrayList<>(); 
+        this.employeeMassages = new ArrayList<>(); 
+        this.newsList = new ArrayList<>(); 
+        
+    } 
+ 
+    public void addCourseForRegistration(Course course, int year, String major) { 
+        course.setYear(year); 
+        course.setMajor(major); 
+        coursesForRegistration.add(course); 
+        System.out.println("Курс добавлен для регистрации: " + course.getName()); 
+    } 
+ 
+    public void assignCourseToTeacher(Course course, Teacher teacher) { 
+        if (!coursesForRegistration.contains(course)) { 
+            System.out.println("Курс не найден в списке доступных для регистрации."); 
+            return; 
+        } 
+        teacher.addCourse(course); 
+        System.out.println("Курс " + course.getName() + " назначен преподавателю " + teacher.getUsername()); 
+    } 
+ 
+    
+ 
+    public void addNews(String title, String content, boolean isResearchPriority) { 
+        News news = new News(title, content, isResearchPriority); 
+        if (isResearchPriority) { 
+            news.setPriority(true); 
+        } 
+        newsList.add(news); 
+        System.out.println("Новость добавлена: " + news.getTitle()); 
+    } 
+ 
+    public void viewAllNews() { 
+        System.out.println("Все новости: "); 
+        for (News news : newsList) { 
+            System.out.println("- " + news.getTitle() + " (Приоритет: " + (news.isPriority() ? "Да" : "Нет") + ")"); 
+        } 
+    } 
+ 
+    public void viewEmployeeMassages() { 
+        System.out.println("Служебные записки сотрудников: "); 
+        for (Message message : employeeMassages) { 
+            System.out.println("- " + message.toString()); 
+        } 
+    } 
+ 
+    public void addMessage(String employeeName, String messageContent) { 
+        Message message = new Message(employeeName, messageContent); 
+        employeeMassages.add(message); 
+        System.out.println("Служебная записка добавлена от " + employeeName); 
+    } 
+ 
+    public void signMessage(Message message) { 
+        message.sign(); 
+        System.out.println("Служебная записка подписана: " + message.getMessageContent()); 
+    } 
+ 
+ 
+}
