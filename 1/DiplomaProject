@@ -1,0 +1,29 @@
+package oop;
+import java.util.*;
+public class DiplomaProject {
+	protected String title;
+	protected Researcher supervisor;
+	protected List<ResearchPaper> relatedPapers;
+	
+	public DiplomaProject(String title, Researcher supervisor, List<ResearchPaper> relatedPapers) {
+		if (supervisor.calculateHIndex()<3) {
+			throw new IllegalArgumentException("Supervisor must have an h-index of at least 3!");
+		}
+		this.title = title;
+		this.supervisor = supervisor;
+		this.relatedPapers = relatedPapers;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public Researcher getSupervisor() {
+		return supervisor;
+	}
+	public List<ResearchPaper> getRelatedPapers(){
+		return relatedPapers;
+	}
+	public String toString() {
+		return "Title of diploma project " + title + " supervisor is " + supervisor + " related papers " + relatedPapers.size();
+	}
+
+}
