@@ -1,0 +1,61 @@
+package oop;
+
+import java.util.ArrayList; 
+import java.util.List; 
+ 
+public class FinanceManager { 
+    private double universityBudget; 
+    private List<String> incomeRecords; 
+    private List<String> expenseRecords; 
+ 
+    public FinanceManager(double initialBudget) { 
+        this.universityBudget = initialBudget; 
+        this.incomeRecords = new ArrayList<>(); 
+        this.expenseRecords = new ArrayList<>(); 
+    } 
+ 
+    public void addIncome(String source, double amount) { 
+        universityBudget += amount; 
+        incomeRecords.add("Источник: " + source + ", Сумма: " + amount); 
+        System.out.println("Добавлен доход: " + amount + " из источника " + source); 
+    } 
+ 
+    public void addExpense(String purpose, double amount) { 
+        if (amount > universityBudget) { 
+            System.out.println("Недостаточно средств в бюджете для выполнения этой операции."); 
+            return; 
+        } 
+ 
+        universityBudget -= amount; 
+        expenseRecords.add("Цель: " + purpose + ", Сумма: " + amount); 
+        System.out.println("Добавлен расход: " + amount + " на " + purpose); 
+    } 
+ 
+    public void viewBudget() { 
+        System.out.println("Текущий бюджет университета: " + universityBudget); 
+    } 
+ 
+    public void generateFinancialReport() { 
+        System.out.println("Финансовый отчет:"); 
+        System.out.println("Доходы:"); 
+        for (String income : incomeRecords) { 
+            System.out.println("- " + income); 
+        } 
+ 
+        System.out.println("Расходы:"); 
+        for (String expense : expenseRecords) { 
+            System.out.println("- " + expense); 
+        } 
+ 
+        System.out.println("Остаток бюджета: " + universityBudget); 
+    } 
+ 
+    public void approveExpense(String purpose, double amount, boolean isApproved) { 
+        if (isApproved) { 
+            addExpense(purpose, amount); 
+            System.out.println("Расход на " + purpose + " одобрен."); 
+        } else { 
+            System.out.println("Расход на " + purpose + " отклонен."); 
+        } 
+    } 
+}
