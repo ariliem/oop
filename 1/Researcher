@@ -1,0 +1,17 @@
+package oop; 
+ 
+import java.util.Vector; 
+ 
+public interface Researcher { 
+ Vector<ResearchPaper> researchPapers = new Vector<ResearchPaper>(); 
+ Vector<ResearchProjects> researchProjects = new Vector<ResearchProjects>(); 
+  
+ public void getResearchPapers(); 
+ public void addResearchPapers(ResearchPaper resPaper); 
+ public void getResearchProject(); 
+ public void setResearchProjects(ResearchProjects resProject); 
+ public double getIndex(); 
+ public void setIndex(double hIndex); 
+ public void calculateHIndex(); 
+ public void printPapers(); 
+}
