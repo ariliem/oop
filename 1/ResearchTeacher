@@ -1,0 +1,65 @@
+package oop;
+
+public class ResearchTeacher extends Teacher implements Researcher { 
+	 public double hIndex = 0; 
+	 
+	 public ResearchTeacher(String id, String username,String email,  String password, String title) { 
+	  super(id, username, email, password, title ); 
+	  // TODO Auto-generated constructor stub 
+	 } 
+	 
+	 @Override 
+	 public void getResearchPapers() { 
+	  for(ResearchPaper p : researchPapers) { 
+	   System.out.println(p.getTitle()); 
+	  } 
+	   
+	 } 
+	 
+	 @Override 
+	 public void addResearchPapers(ResearchPaper resPaper) { 
+	  researchPapers.addElement(resPaper); 
+	   
+	 } 
+	 
+	 @Override 
+	 public void getResearchProject() { 
+	  for(ResearchProjects p : researchProjects) { 
+	   System.out.println(p.getProjectName()); 
+	  } 
+	   
+	 } 
+	 
+	 @Override 
+	 public void setResearchProjects(ResearchProjects resProject) { 
+	  this.researchProjects.addElement(resProject); 
+	   
+	 } 
+	 
+	 @Override 
+	 public double getIndex() { 
+	  return hIndex; 
+	 } 
+	 
+	 @Override 
+	 public void setIndex(double hIndex) { 
+	  this.hIndex = hIndex; 
+	   
+	 } 
+	 
+	 @Override 
+	 public void calculateHIndex() { 
+	//  Somehow 
+	   
+	 } 
+	 
+	 @Override 
+	 public void printPapers() { 
+	  for(ResearchPaper p : researchPapers) { 
+	   p.printData(); 
+	  } 
+	   
+	 } 
+	  
+	 
+	}
