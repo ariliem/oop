@@ -1,0 +1,75 @@
+package oop;
+
+import java.util.ArrayList; 
+import java.util.List; 
+ 
+public class FinanceOffice { 
+    private double universityBudget; 
+    private double scholarshipAmount; 
+    private double retakeFee; 
+    private double summerSchoolFee; 
+    private double discountRate; 
+    private List<Student> scholarshipStudents; 
+ 
+    public FinanceOffice(double universityBudget, double scholarshipAmount, double retakeFee, double summerSchoolFee, double discountRate) { 
+        this.universityBudget = universityBudget; 
+        this.scholarshipAmount = scholarshipAmount; 
+        this.retakeFee = retakeFee; 
+        this.summerSchoolFee = summerSchoolFee; 
+        this.discountRate = discountRate; 
+        this.scholarshipStudents = new ArrayList<>(); 
+    } 
+ 
+    public void assignScholarship(Student student) { 
+        if (student.isPaid()) { 
+            System.out.println("Студент " + student.getUsername() + " является платником и не может получать стипендию."); 
+            return; 
+        } 
+ 
+        for (int grade : student.getGrades()) { 
+            if (grade < 70) { 
+                System.out.println("Студент " + student.getUsername() + " не может получить стипендию, так как есть оценки ниже 70."); 
+                return; 
+            } 
+        } 
+ 
+        scholarshipStudents.add(student); 
+        universityBudget -= scholarshipAmount; 
+        System.out.println("Стипендия назначена студенту: " + student.getUsername()); 
+    } 
+ 
+    public void collectTuitionFee(Student student, double fee) { 
+        if (!student.isPaid()) { 
+            System.out.println("Студент " + student.getUsername() + " не является платником."); 
+            return; 
+        } 
+ 
+        universityBudget += fee; 
+        System.out.println("Оплата за обучение получена от студента: " + student.getUsername() + ". Сумма: " + fee); 
+    } 
+ //bonus
+    public void payRetakeFee(Student student) { 
+        universityBudget += retakeFee; 
+        System.out.println("Студент " + student.getUsername() + " оплатил пересдачу. Сумма: " + retakeFee); 
+    } 
+ 
+    public void paySummerSchoolFee(Student student) { 
+        universityBudget += summerSchoolFee; 
+        System.out.println("Студент " + student.getUsername() + " оплатил летнюю школу. Сумма: " + summerSchoolFee); 
+    } 
+
+    public void applyDiscount(Student student, double fee) { 
+        double discountedFee = fee - (fee * discountRate); 
+        universityBudget += discountedFee; 
+        System.out.println("Студент " + student.getUsername() + " получил скидку. Оплаченная сумма: " + discountedFee); 
+    } 
+ 
+    public void collectStudentContribution(Student student, double contributionAmount) { 
+        universityBudget += contributionAmount; 
+        System.out.println("Студенческий взнос от студента " + student.getUsername() + ". Сумма: " + contributionAmount); 
+    } 
+ 
+    public void showUniversityBudget() { 
+        System.out.println("Текущий бюджет университета: " + universityBudget); 
+    } 
+}
