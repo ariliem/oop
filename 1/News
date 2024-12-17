@@ -1,0 +1,38 @@
+package oop;
+
+public class News extends Manager { 
+    private String title; 
+    private String content; 
+    private boolean isPriority; 
+ 
+    public News(String title, String content, boolean isPriority) { 
+        super("News Manager", 0, "News Manager", null, null);  
+        this.title = title; 
+        this.content = content; 
+        this.isPriority = isPriority; 
+    } 
+ 
+    public String getTitle() { 
+        return title; 
+    } 
+ 
+    public void setTitle(String title) { 
+        this.title = title; 
+    } 
+ 
+    public String getContent() { 
+        return content; 
+    } 
+ 
+    public void setContent(String content) { 
+        this.content = content; 
+    } 
+ 
+    public boolean isPriority() { 
+        return isPriority; 
+    } 
+ 
+    public void setPriority(boolean isPriority) { 
+        this.isPriority = isPriority; 
+    } 
+}
