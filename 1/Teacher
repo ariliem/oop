@@ -1,0 +1,24 @@
+package oop;
+import java.util.*;
+public class Teacher extends User{
+	protected String title;
+	protected List<String> courses;
+	
+	public Teacher(String id, String username, String email, String password,  String title) {
+		super(id,username,email, password);
+		this.title = title;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void sendComplaint(Student student, UrgencyLevel urgency) {
+		System.out.println("Complaint sent for student " + student.getUsername() + " with urgency " + urgency);
+	}
+	public void addCourse(Course course) {
+        courses.add(course);
+	}
+	public void authentificate(String password) {
+		System.out.println("Authentificating teacher...");
+	}
+
+}
