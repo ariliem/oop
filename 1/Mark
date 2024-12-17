@@ -1,0 +1,19 @@
+package oop;
+
+public class Mark {
+	protected double att1;
+	protected double att2;
+	protected double finalExam;
+	
+	public Mark(double att1, double att2, double finalExam) {
+		this.att1 = att1;
+		this.att2 = att2;
+		this.finalExam = finalExam;
+	}
+	public double calculateTotal() {
+		return att1 + att2 + finalExam;
+	}
+	public String toString() {
+		return "Mark for attestation 1 is  " + att1 + " mark for attestation 2 is " + att2 + " for final " + finalExam + " total is " + calculateTotal();
+	}
+}
