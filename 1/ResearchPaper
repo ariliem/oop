@@ -1,0 +1,110 @@
+package oop;
+
+import java.util.List; 
+import java.util.Vector; 
+ 
+public class ResearchPaper { 
+ private String title; 
+ Vector<String> authors = new Vector<String>(); 
+ private String publicationDate; 
+ private String abstractText; 
+ Vector<String> keywords = new Vector<String>(); 
+ Vector<String> citations = new Vector<String>(); 
+ private int pages; 
+ private String journal; 
+ private String doi; 
+  
+ public ResearchPaper(String title, 
+ String author, 
+ String publicationDate, 
+ String abstractText, 
+ int pages, 
+ String journal, 
+ String doi 
+ ) { 
+  this.abstractText = abstractText; 
+  this.title = title; 
+  this.publicationDate = publicationDate; 
+  this.pages = pages; 
+  this.journal = journal; 
+  this.doi = doi; 
+ } 
+  
+  
+ public String getTitle() { 
+  return title; 
+ } 
+ public void setTitle(String title) { 
+  this.title = title; 
+ } 
+ // 
+ public void getAuthors() { 
+  for(String s : authors) { 
+   System.out.println(s); 
+  } 
+ } 
+ public void setAuthors(String author) { 
+  this.authors.addElement(author); 
+ } 
+ // 
+ public String getPublicationDate() { 
+  return publicationDate; 
+ } 
+ public void setPublicationDate(String publicationDate) { 
+  this.publicationDate = publicationDate; 
+ } 
+ // 
+ public String getAbstractText() { 
+  return abstractText; 
+ } 
+ public void setAbstractText(String abstractText) { 
+  this.abstractText = abstractText; 
+ } 
+ // 
+ public int getPages() { 
+  return pages; 
+ } 
+ public void setPages(int pages) { 
+  this.pages = pages; 
+ } 
+ // 
+ public String getJournal() { 
+  return journal; 
+ } 
+ public void setJournal(String journal) { 
+  this.journal = journal; 
+ } 
+ // 
+ public String getDoi() { 
+  return doi; 
+ } 
+ public void setDoi(String doi) { 
+  this.doi = doi; 
+ } 
+ // 
+ public void addKeyword(String keyword) { 
+  this.keywords.addElement(keyword); 
+ } 
+ public void printKeywords() { 
+  for(String s: keywords) { 
+   System.out.println(s); 
+  } 
+ } 
+ // 
+ public void addCitation(String citation) { 
+  this.citations.addElement(citation); 
+ } 
+ public void printCitations() { 
+  for(String c: citations) { 
+   System.out.println(c); 
+  } 
+ } 
+ // 
+ public void printData() { 
+  System.out.println(title); 
+  getAuthors(); 
+  System.out.println(publicationDate); 
+  //to add 
+ } 
+  
+}
