@@ -1,0 +1,39 @@
+package oop;
+
+public class Message { 
+    private String employeeName;  
+    private String messageContent;  
+    private boolean isSigned;  
+ 
+    public Message(String employeeName, String messageContent) { 
+        this.employeeName = employeeName; 
+        this.messageContent = messageContent; 
+        this.isSigned = false;  
+    } 
+ 
+    public String getEmployeeName() { 
+        return employeeName; 
+    } 
+ 
+    public String getMessageContent() { 
+        return messageContent; 
+    } 
+ 
+    public boolean isSigned() { 
+        return isSigned; 
+    } 
+ 
+    public void sign() { 
+        this.isSigned = true; 
+        System.out.println("Служебная записка подписана."); 
+    } 
+ 
+    public void setMessageContent(String messageContent) { 
+        this.messageContent = messageContent; 
+    } 
+ 
+    @Override 
+    public String toString() { 
+        return "Служебная записка от " + employeeName + ": " + messageContent + " (Подписана: " + (isSigned ? "Да" : "Нет") + ")"; 
+    } 
+}
