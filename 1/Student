@@ -1,0 +1,41 @@
+package oop;
+import java.util.*;
+public class Student extends User implements Cloneable{
+	
+	private double gpa;
+	protected boolean paid;
+	private List<Integer> grades;
+	public Student(String id, String username, String email, String password, double gpa, boolean paid) {
+		super(id, username, email, password);
+		this.gpa = gpa;
+		this.paid = false;
+	}
+	public double getGpa() {
+		return gpa;
+	}
+	public void registerforCourse(Course course) {
+		System.out.println("Student " + getUsername() + "registered for course " + course.getName());
+	}
+	public boolean isPaid() {
+        return paid; 
+    }
+	public void addGrade(int grade) {
+        grades.add(grade);
+    }
+    public List<Integer> getGrades() {
+        return grades;
+    }
+    public Student clone() {
+        try {
+            Student cloned = (Student) super.clone();  
+            cloned.grades = new ArrayList<>(this.grades);
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("Clone no", e);
+        }
+    }
+	public void authentificate(String password) {
+		System.out.println("Authentificating student...");
+	}
+	
+}
