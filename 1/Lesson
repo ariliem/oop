@@ -1,0 +1,14 @@
+package oop;
+
+public class Lesson {
+	protected String name;
+	protected LessonType type;
+	
+	public Lesson(String name, LessonType type) {
+		this.name = name;
+		this.type = type;
+	}
+	public String toString() {
+		return " name of lesson " + name + " type of lesson " + type;
+	}
+}
