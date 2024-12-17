@@ -1,0 +1,61 @@
+package oop;
+
+import java.util.Vector; 
+
+public class ResearchProjects { 
+ private String projectName; 
+ Vector<String> teamMembers = new Vector<String>(); 
+ private String startDate; 
+ private String finishDate; 
+ private double budget; 
+// Vector<ResearchPapers> papers = new Vector<ResearchPapers>(); 
+  
+ // 
+ public String getProjectName() { 
+  return projectName; 
+ } 
+ public void setProjectName(String projectName) { 
+  this.projectName = projectName; 
+ } 
+ // 
+ public String getStartDate() { 
+  return startDate; 
+ } 
+ public void setStartDate(String startDate) { 
+  this.startDate = startDate; 
+ } 
+ // 
+ public String getFinishDate() { 
+  return finishDate; 
+ } 
+ public void setFinishDate(String finishDate) { 
+  this.finishDate = finishDate; 
+ } 
+ // 
+ public double getBudget() { 
+  return budget; 
+ } 
+ public void setBudget(double budget) { 
+  this.budget = budget; 
+ } 
+ // 
+ public void addTeamMembers(String person) { 
+  this.teamMembers.addElement(person); 
+ } 
+ public void showTeamMembers() { 
+  System.out.println("Members of project "+projectName+" are: "); 
+  for(String s : teamMembers) { 
+   System.out.print(s); 
+  } 
+ } 
+ // 
+// public void addPapers(ResearchPaper) { 
+//  this.teamMembers.addElement(person); 
+// } 
+// public void showTeamMembers() { 
+//  System.out.println("Members of project "+projectName+" are: "); 
+//  for(String s : teamMembers) { 
+//   System.out.print(s); 
+//  } 
+// } 
+}
